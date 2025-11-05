@@ -1,0 +1,51 @@
+<div class="meme-editor">
+  <div class="upload-section">
+    <label class="upload-btn">
+      <fa-icon [icon]="faUpload"></fa-icon> Choisir une image
+      <input type="file" (change)="onImageSelected($event)" accept="image/*" hidden />
+    </label>
+
+    <button *ngIf="previewUrl" class="remove-btn" (click)="removeImage()">
+      <fa-icon [icon]="faTrash"></fa-icon> Supprimer
+    </button>
+  </div>
+
+  <div class="inputs" *ngIf="previewUrl">
+    <input type="text" [(ngModel)]="text" placeholder="Texte du mème" (input)="drawMeme()" />
+  </div>
+
+  <canvas
+    #memeCanvas
+    (mousedown)="startDragging($event)"
+    (mousemove)="dragText($event)"
+    (mouseup)="stopDragging()"
+    width="500"
+    height="500"
+  ></canvas>
+
+  <div class="actions" *ngIf="previewUrl">
+    <button (click)="downloadMeme()">
+      <fa-icon [icon]="faDownload"></fa-icon> Télécharger
+    </button>
+
+    <button (click)="saveMeme()" [disabled]="loading">
+      <fa-icon [icon]="faTimes"></fa-icon>
+        {{ loading ? '⏳ Génération...' : '⚡ Générer' }}
+
+    </button>
+
+    <button (click)="toggleShare()" *ngIf="selectedImage">
+      <fa-icon [icon]="faShareAlt"></fa-icon> Partager
+    </button>
+  </div>
+
+  <div class="share-popup" *ngIf="showSharePopup">
+    <p>Partager sur :</p>
+    <div class="share-icons">
+      <button (click)="shareOnFacebook()"><fa-icon [icon]="faFacebookF"></fa-icon></button>
+      <button (click)="shareOnTwitter()"><fa-icon [icon]="faTwitter"></fa-icon></button>
+      <button (click)="shareOnWhatsApp()"><fa-icon [icon]="faWhatsapp"></fa-icon></button>
+    </div>
+    <button class="close-btn" (click)="toggleShare()">Fermer ✖️</button>
+  </div>
+</div>
