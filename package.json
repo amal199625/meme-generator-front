@@ -3,10 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start:dev": "ng serve",
+    "build": "node_modules/.bin/ng build --configuration production",
     "start": "npx http-server -p 8080 -c-1 ./dist/meme-generator",
-    "build": "npx ng build --configuration production",
-    "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
   "private": true,
