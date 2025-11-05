@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Storage, ref, uploadBytes, getDownloadURL, listAll } from '@angular/fire/storage';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({

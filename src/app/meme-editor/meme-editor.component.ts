@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faFacebookF, faTwitter, faWhatsapp, faTelegram } from '@fortawesome/free-brands-svg-icons';
 import { faTimes, faTrash, faUpload, faDownload, faShareAlt } from '@fortawesome/free-solid-svg-icons';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-meme-editor',
