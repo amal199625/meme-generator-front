@@ -28,6 +28,7 @@ export class MemeEditorComponent {
   loading = false;
   showSharePopup = false;
   lastSavedUrl: string | null = null;
+  showButton=false
 
   // Canvas and text position
   canvasWidth = 500;
@@ -59,7 +60,6 @@ export class MemeEditorComponent {
       this.selectedImage = image;
       this.previewUrl = image;
       this.lastSavedUrl = image;
-
       this.drawMeme();
     });
   }
@@ -156,7 +156,8 @@ export class MemeEditorComponent {
       next: (res: any) => {
         this.loading = false;
         this.lastSavedUrl = res.url;
-        this.showSharePopup = true;
+        // this.showSharePopup = true;
+        this.showButton=true;
         this.memeSaved.emit();
       },
       error: () => {

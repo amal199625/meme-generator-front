@@ -24,8 +24,8 @@
   ></canvas>
 
   <div class="actions" *ngIf="previewUrl">
-    <button (click)="downloadMeme()">
-      <fa-icon [icon]="faDownload"></fa-icon> Télécharger
+    <button (click)="downloadMeme()" [disabled]="!showButton">
+      <fa-icon [icon]="faDownload"></fa-icon> Télécharger{{showButton}}
     </button>
 
     <button (click)="saveMeme()" [disabled]="loading">
@@ -34,7 +34,7 @@
 
     </button>
 
-    <button (click)="toggleShare()" *ngIf="selectedImage">
+    <button (click)="toggleShare()" [disabled]="!showButton">
       <fa-icon [icon]="faShareAlt"></fa-icon> Partager
     </button>
   </div>
